@@ -1,0 +1,27 @@
+<div class="bg-dark text-white">
+  <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)" class="container">
+    <h3>Add my post:</h3>
+    <div class="">
+      <label for="title" class="form-label">Title:</label>
+      <input type="text" id="title" name="title" ngModel required class="form-control" />
+      <div *ngIf="postForm.controls['title']?.invalid && postForm.controls['title']?.touched" class="text-danger">
+        The title is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="text" class="form-label">Content:</label>
+      <textarea id="text" name="text" ngModel required class="form-control"></textarea>
+      <div *ngIf="postForm.controls['text']?.invalid && postForm.controls['text']?.touched" class="text-danger">
+        Content is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image URL:</label>
+      <input type="text" id="image" name="image" ngModel class="form-control" />
+    </div>
+
+    <button type="submit" [disabled]="postForm.invalid" class="btn btn-primary">Add Post</button>
+  </form>
+</div>

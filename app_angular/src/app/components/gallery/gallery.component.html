@@ -1,0 +1,24 @@
+<div class="bg-dark">
+  <div class="p-5">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let post of posts">
+        <div class="card bg-dark mb-4">
+          <img src="{{ post.image }}" class="card-img-top" alt="Post Image" (click)="openModal(post.image)">
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="selectedImage" class="modal" tabindex="-1" style="display:block;" (click)="closeModal()">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+          </div>
+          <div class="modal-body">
+            <img [src]="selectedImage" class="img-fluid" alt="Enlarged Image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
