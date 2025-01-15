@@ -1,3 +1,13 @@
-<blog-item-image [image]="image"></blog-item-image>
-<blog-item-text [text]="text"></blog-item-text>
-<comments-section [postId]="id"></comments-section>
+<!--<blog-item-image [image]="image"></blog-item-image>-->
+<!--<blog-item-text [text]="text"></blog-item-text>-->
+<!--<comments-section [postId]="id"></comments-section>-->
+
+<div class="card" style="width: 18rem;">
+  <blog-item-image [image]="image"/>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <div class="card-text">
+      <blog-item-text [text]="text" [id]="id"/>
+    </div>
+  </div>
+</div>

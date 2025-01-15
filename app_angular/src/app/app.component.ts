@@ -14,9 +14,10 @@ import { DataService } from './services/data.service';
 })
 
 export class AppComponent {
-  public posts: any[] = [];
+  public posts$: any;
+
   constructor(private dataService: DataService) {
-    this.posts = this.dataService.getAll();
+    this.posts$ = this.dataService.getAll();
   }
 
 

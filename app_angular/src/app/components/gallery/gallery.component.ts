@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'gallery',
@@ -9,7 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './gallery.component.css'
 })
 export class GalleryComponent {
-  @Input() posts: any[] = [];
+  @Input() posts$: Observable<{ image: string }[]> | null = null;
+
   selectedImage: string | null = null;
 
   openModal(image: string) {

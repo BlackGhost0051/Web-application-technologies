@@ -1,0 +1,9 @@
+<div class="bg-dark">
+  <app-search-bar class="m-1" (name)="getName($event)"></app-search-bar>
+
+  <button class="btn btn-primary mb-3" (click)="refreshPosts()">Odśwież posty</button>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <blog class="blog bg-dark" [filterText]="filterText"></blog>
+  </div>
+</div>

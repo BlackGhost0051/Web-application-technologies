@@ -1,9 +1,12 @@
 <div class="p-3 bg-dark text-white rounded">
   <h6>Comments</h6>
   <ul class="list-unstyled">
-    <li *ngFor="let comment of comments" class="mb-2 p-2 bg-secondary rounded">
-      {{ comment.text }}
-    </li>
+<!--    <li *ngFor="let comment of comments" class="mb-2 p-2 bg-secondary rounded">-->
+<!--      {{ comment.text }}-->
+<!--    </li>-->
+    @for (comment of comments; track comment.postId){
+      <li class="mb-2 p-2 bg-secondary rounded">{{ comment.text }}</li>
+    }
   </ul>
   <textarea
     class="form-control mb-2"

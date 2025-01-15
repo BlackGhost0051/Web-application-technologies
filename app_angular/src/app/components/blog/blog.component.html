@@ -1,4 +1,13 @@
-<div class="card p-1 bg-dark" style="width: 18rem;" *ngFor="let item of items">
-  <blog-item [image]="item.image" [text]="item.text" [id]="item.id">
-  </blog-item>
+<div class="card p-1 bg-dark" style="width: 18rem;">
+  @for(item of (items$ | filter:filterText); track item._id){
+    <blog-item
+      [image]="item.image"
+      [text]="item.text"
+      [id]="item._id">
+    </blog-item>
+  }
 </div>
+
+@if((items$ | filter:filterText).length == 0){
+  <h1 class="text-white">Brak wyników spełniających kryteria wyszukiwania</h1>
+}

@@ -1,24 +1,37 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {BlogItemComponent} from "../blog-item/blog-item.component";
 import {CommonModule} from "@angular/common";
+import {HttpClientModule} from '@angular/common/http';
+import { FilterTextPipe } from '../../pipes/filter-text.pipe';
+import {BehaviorSubject, filter} from 'rxjs';
+
 
 @Component({
   selector: 'blog',
   standalone: true,
-  imports: [BlogItemComponent, CommonModule],
+  imports: [HttpClientModule, BlogItemComponent, CommonModule, FilterTextPipe],
   providers: [DataService],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })
 export class BlogComponent implements OnInit{
-  public items: any;
+  @Input() filterText: string = '';
+
+  public items$: any;
 
   constructor(private service: DataService) {
   }
 
   ngOnInit() {
-    this.items = this.service.getAll();
+    this.getAll();
   }
 
+  getAll(){
+    this.service.getAll().subscribe(response => {
+      this.items$ = response;
+      console.log(this.items$.length);
+      console.log(this.filterText);
+    });
+  }
 }
