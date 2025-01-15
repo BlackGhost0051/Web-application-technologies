@@ -6,6 +6,8 @@ import { config } from './config';
 import Controller from "./interfaces/controller.interface";
 import mongoose from "mongoose";
 
+import cors from "cors"
+
 class App {
     public app: express.Application;
 
@@ -55,6 +57,7 @@ class App {
     }
 
     private initializeMiddlewares(): void {
+        this.app.use(cors());
         this.app.use(bodyParser.json());
         this.app.use(morgan('dev'));
     }
