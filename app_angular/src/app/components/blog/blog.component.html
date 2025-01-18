@@ -1,8 +1,9 @@
 <div class="card p-1 bg-dark" style="width: 18rem;">
   @for(item of (items$ | filter:filterText); track item._id){
-    <blog-item
+    <blog-item class=""
       [image]="item.image"
       [text]="item.text"
+               [title]="item.title"
       [id]="item._id">
     </blog-item>
   }

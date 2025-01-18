@@ -4,20 +4,26 @@
 <!--</p>-->
 
 <div class="container mt-4">
+  @if(title){
+    <div class="text-center">
+      <h1 class="text-white" style="">{{ title }}</h1>
+    </div>
+  }
+
   @if(image) {
     <div class="text-center mb-3">
-      <img [src]="image" alt="Post Image" class="img-fluid" style="max-width: 300px;">
+      <img [src]="image" alt="Post Image" class="img-fluid" style="max-width: 50%">
     </div>
   }
 
   @if(text) {
     <div class="text-center">
-      <p class="lead">{{ text }}</p>
+      <p class="lead text-white">{{ text }}</p>
     </div>
   }
 </div>
 
-@if (!(image || text)) {
+@if (!(image || text || title)) {
   <div class="text-center mt-4">
     <p class="text-muted">Loading post details...</p>
   </div>

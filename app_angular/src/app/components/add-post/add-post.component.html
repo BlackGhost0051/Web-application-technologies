@@ -1,7 +1,7 @@
-<div class="bg-dark text-white">
+<div class="bg-dark mt-5 text-white">
   <form #postForm="ngForm" (ngSubmit)="onSubmit(postForm)" class="container">
-    <h3>Add my post:</h3>
-    <div class="">
+    <h2>Add my post</h2>
+    <div class="mb-3">
       <label for="title" class="form-label">Title:</label>
       <input type="text" id="title" name="title" ngModel required class="form-control" />
       <div *ngIf="postForm.controls['title']?.invalid && postForm.controls['title']?.touched" class="text-danger">

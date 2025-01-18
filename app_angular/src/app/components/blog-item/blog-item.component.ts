@@ -14,5 +14,6 @@ import {CommentsSectionComponent} from '../comments-section/comments-section.com
 export class BlogItemComponent {
   @Input() image?: string;
   @Input() text?: string;
+  @Input() title?: string;
   @Input() id!: string;
 }
