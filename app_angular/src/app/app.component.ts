@@ -4,11 +4,12 @@ import {BlogComponent} from './components/blog/blog.component';
 import {AddPostComponent} from './components/add-post/add-post.component';
 import {GalleryComponent} from './components/gallery/gallery.component';
 import { DataService } from './services/data.service';
+import {NavbarComponent} from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, BlogComponent, AddPostComponent, GalleryComponent],
+  imports: [RouterOutlet, BlogComponent, AddPostComponent, GalleryComponent, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

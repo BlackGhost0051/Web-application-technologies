@@ -24,9 +24,19 @@ export class DataService {
     );
   }
 
+  addPost(postData: any) {
+    return this.http.post(`${this.url}/api/post`, postData).subscribe({
+      next: (response) => console.log('Post added successfully:', response),
+      error: (err) => console.error('Error adding post:', err),
+    });
+  }
 
-
-  public addPost(post: any) {
-    //posts.push(post);
+  changePassword(login: string, currentPassword: string, newPassword: string) {
+    const body = {
+      login: login,
+      password: currentPassword,
+      newPassword: newPassword
+    };
+    return this.http.patch(`${this.url}/api/user/change-password`, body);
   }
 }

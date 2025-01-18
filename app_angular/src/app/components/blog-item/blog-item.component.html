@@ -2,10 +2,10 @@
 <!--<blog-item-text [text]="text"></blog-item-text>-->
 <!--<comments-section [postId]="id"></comments-section>-->
 
-<div class="card" style="width: 18rem;">
+<div class="card bg-black text-white" style="width: 18rem; margin-bottom: 1.5ex">
   <blog-item-image [image]="image"/>
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
+    <h5 class="card-title">{{title}}</h5>
     <div class="card-text">
       <blog-item-text [text]="text" [id]="id"/>
     </div>

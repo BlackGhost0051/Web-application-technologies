@@ -15,6 +15,7 @@ import {CommonModule} from '@angular/common';
 export class BlogItemDetailsComponent implements OnInit {
   public image: string = '';
   public text: string = '';
+  public title: string = '';
 
   constructor(private service: DataService, private route: ActivatedRoute) {
   }
@@ -30,6 +31,7 @@ export class BlogItemDetailsComponent implements OnInit {
     this.service.getById(id).subscribe((res: any) => {
       this.image = res['image'];
       this.text = res['text'];
+      this.title = res['title'];
     });
   }
 }
